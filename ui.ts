@@ -90,10 +90,10 @@ export async function intro() {
     await pause();
     printToConsole("\n\r");
 
-    await typeset("To compile your function with Speedy.js, you need to follow these instructions:")
+    await typeset("To compile your program with Speedy.js, you need to follow these instructions:")
     await pause();
 
-    await typeset("     • create a file that ends with '-spdy.ts'");
+    await typeset("     • put it in a file that ends with '-spdy.ts'");
     await pause("short");
     await typeset("     • add the 'async' and 'export' modifiers to your function");
     await pause("short");
