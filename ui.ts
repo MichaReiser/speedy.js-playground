@@ -86,36 +86,41 @@ export async function intro() {
     await typeset("This is the Speedy.js Playground...");
     await pause();
 
-    await typeset("... it demonstrates you the power and the simplicity in use of Speedy.js...");
+    await typeset("... it demonstrates you the power and the simplicity in use of Speedy.js.");
     await pause();
-    await typeset("... to compile your function with Speedy.js you need to follow these instructions:")
+    printToConsole("\n\r");
+
+    await typeset("To compile your function with Speedy.js, you need to follow these instructions:")
     await pause();
 
-    await typeset("     * create a file that ends with '-spdy.ts'");
+    await typeset("     • create a file that ends with '-spdy.ts'");
     await pause("short");
-    await typeset("     * add the 'async' and 'export' modifiers to your function");
+    await typeset("     • add the 'async' and 'export' modifiers to your function");
     await pause("short");
-    await typeset("     * add the \"use speedyjs\" directive as the first statement in your function");
-    await typeset("     * import the created function into the 'index.ts' file");
+    await typeset("     • add the \"use speedyjs\" directive as the first statement in your function");
+    await typeset("     • import the created function into the 'index.ts' file");
     await pause("short");
-    await typeset("     * and, finally, call your function from inside of main (don't forget the await keyword)");
+    await typeset("     • and, finally, call your function from the main function in the 'index.ts' file (don't forget the 'await' keyword)");
     await pause("long");
 
     printToConsole("\n\r");
 
-    await typeset("To print something to this console, use 'console.log' (not supported from Speedy.js functions).");
+    await typeset("To print something to this console, use 'console.log' (not supported from inside of Speedy.js functions).");
     await pause();
     printToConsole("\n\r");
 
-    await typeset("You need some inspiration or are still unsure how this all works...")
-    await typeset("... then take a look at the `fib-spdy.ts' file: An implementation of the recursive Fibonacci number algorithm");
-    await typeset("... let's compute the Fibonacci number of 40 to show that this is not just a tail");
-    await typeset("... and the result is:", false);
+    await typeset("You need some inspiration or are still unsure how this all works...");
+    await typeset("... then take a look at the `fib-spdy.ts' file: An implementation of the recursive Fibonacci number algorithm.");
+    printToConsole("\n\r");
+
+    await typeset("Let's compute the Fibonacci number of 40 to show that all of this is not just a tale...");
+    await typeset("... and, the result is: ", false);
     await typeset("" + await fib(40));
-
     await pause("long");
+    printToConsole("\n\r");
+
     await typeset("Now it's your turn!");
 
     await pause();
-    await typeset("\n... and just in case you get annoyed by this intro text, add the URL parameter '?intro=false' to suppress it.");
+    await typeset("\nAnd just in case you get annoyed by this intro text. You can add the URL parameter '?intro=false' to suppress it.");
 }
