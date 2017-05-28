@@ -1,0 +1,23 @@
+{
+  "name": "speedy.js-playground",
+  "version": "1.0.0",
+  "description": "Playground Project for Speedy.js",
+  "repository": "https://github.com/MichaReiser/speedy.js-playground.git",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "webpack"
+  },
+  "keywords": [
+    "Speedy.js"
+  ],
+  "author": "Micha Reiser <micha@famreiser.ch>",
+  "license": "MIT",
+  "devDependencies": {
+    "speedyjs-compiler": "^0.0.8",
+    "speedyjs-loader": "^0.0.8",
+    "ts-loader": "^2.1.0",
+    "typescript": "github:michareiser/TypeScript#2.3.3-with-int",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
