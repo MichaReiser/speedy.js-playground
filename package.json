@@ -13,8 +13,8 @@
   "author": "Micha Reiser <micha@famreiser.ch>",
   "license": "MIT",
   "devDependencies": {
-    "speedyjs-compiler": "^0.0.8",
-    "speedyjs-loader": "^0.0.8",
+    "speedyjs-compiler": "^0.0.9",
+    "speedyjs-loader": "^0.0.9",
     "ts-loader": "^2.1.0",
     "typescript": "github:michareiser/TypeScript#2.3.3-with-int",
     "webpack": "^2.6.1",
