@@ -4,10 +4,14 @@ import {fib} from "./fib-spdy";
 
 
 async function main() {
-    await intro();
+    try {
+        await intro();
 
-    // call your function here
-    // e.g. console.log(await fib(40));
+        // call your function here
+        // e.g. console.log(await fib(40));
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 

@@ -3,6 +3,13 @@ import {fib} from "./fib-spdy";
 
 const logOutput = document.querySelector("#log");
 
+function serialize(value) {
+    if (value instanceof Error) {
+        return value.stack.replace("\n", "\n\r");
+    }
+
+    return JSON.stringify(value);
+}
 /**
  * Prints a message to the on screen console
  * @param args the arguments to print to the console. Either a string or an object
@@ -11,7 +18,7 @@ function printToConsole(...args: any[]) {
     let output;
     const firstArg = args.length > 0 ? args[0] : "";
     if (typeof firstArg === "object") {
-        output = args.map(arg => JSON.stringify(arg)).join("&nbsp;");
+        output = args.map(serialize).join("&nbsp;");
     } else {
         output = args.join(", ");
     }
@@ -23,13 +30,16 @@ function printToConsole(...args: any[]) {
  * Redirects console.log calls to the console in the index.html
  */
 export function redirectConsoleLog() {
-    const consoleLog = console.log;
-    
-    console.log = function() {
-        consoleLog.apply(console, arguments);
-        printToConsole.apply(undefined, arguments);
-        printToConsole("\n\r");
+    function createLogger(log) {
+        return function redirectToOnScreenLog() {
+            log.apply(console, arguments);
+            printToConsole.apply(undefined, arguments);
+            printToConsole("\n\r");
+        }
     }
+
+    console.log = createLogger(console.log);
+    console.error = createLogger(console.error);
 }
 
 /**
@@ -105,7 +115,7 @@ export async function intro() {
 
     printToConsole("\n\r");
 
-    await typeset("To print something to this console, use 'console.log' (not supported from inside of Speedy.js functions).");
+    await typeset("To write to this console, use 'console.log' (not supported from inside of Speedy.js functions).");
     await pause();
     printToConsole("\n\r");
 
