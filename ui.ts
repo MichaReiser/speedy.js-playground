@@ -5,7 +5,7 @@ const logOutput = document.querySelector("#log");
 
 function serialize(value) {
     if (value instanceof Error) {
-        return value.stack.replace("\n", "\n\r");
+        return `Error: ${value.message}\n${value.stack}`;
     }
 
     return JSON.stringify(value);
